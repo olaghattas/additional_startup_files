@@ -38,7 +38,7 @@ class QuestionResponseClient(Node):
         self._goal_handle = goal_handle
         result_future = self._goal_handle.get_result_async()
         result_future.add_done_callback(self.result_callback)
-        print("goal respone done")
+        # print("goal respone done")
 
     def feedback_callback(self, feedback_msg):
         # self.get_logger().info(f'Feedback received: {feedback_msg.feedback}')
@@ -48,16 +48,16 @@ class QuestionResponseClient(Node):
         result = future.result().result
         # self.get_logger().info(f'Result: {result}')
         # print("result:  ",type(result.response))
-        # print("sdlkjfhlkjsd ",result.response == "yes")
+        print("sdlkjfhlkjsd ",result.response == "yes")
         # Use subprocess.run to execute the shell script
-
-        try:
-            result_ = subprocess.run(['bash', script_path], check=True, text=True, capture_output=True)
-            print("Script executed successfully:")
-            print(result.stdout)  # Output of the script
-        except subprocess.CalledProcessError as e:
-            print(f"Error occurred while running the script: {e}")
-            print(e.stderr)  # Error output from the script
+        if result.response == "yes":
+            try:
+                result_ = subprocess.run(['bash', self.script_path], check=True, text=True, capture_output=True)
+                print("Script executed successfully:")
+                print(result_.stdout)  # Output of the script
+            except subprocess.CalledProcessError as e:
+                print(f"Error occurred while running the script: {e}")
+                print(e.stderr)  # Error output from the script
 
 
 
