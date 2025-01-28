@@ -1,0 +1,35 @@
+{
+  "time_windows": [
+    {
+      "name": "practice",
+      "start_time": "07:30",
+      "end_time": "08:30",
+      "strings": ["already_reminded_practice"]
+    },
+    {
+      "name": "AM_Medicine",
+      "start_time": "08:45",
+      "end_time": "10:00",
+      "strings": ["already_reminded_medicine am_meds", "already_took_medicine am_meds"],
+      "comment":"internal check and medicine are too close so we dont need to have the robot restrat between them"
+    },
+    {
+      "name": "exercise",
+      "start_time": "11:30",
+      "end_time": "12:30",
+      "strings": ["already_reminded_exercise"]
+    },
+    {
+      "name": "move",
+      "start_time": "15:00",
+      "end_time": "16:00",
+      "strings": ["already_reminded_move"]
+    },
+    {
+      "name": "PM_Medicine",
+      "start_time": "21:00",
+      "end_time": "22:00",
+      "strings": ["already_reminded_medicine pm_meds", "already_took_medicine pm_meds"]
+    }
+  ]
+}
